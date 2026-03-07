@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import './Register.css'
 function Patient() {
   const [formData, setFormData] = useState({
     name: '',
