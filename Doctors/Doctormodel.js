@@ -8,11 +8,11 @@ const doctorSchema = new mongoose.Schema({
     },
     DOB:{
         type:Date,
-        require:true
+        required:true
     },
     gender:{
         type:String,
-        require:true
+        required:true
     },
     region: {
         type: String,
@@ -40,12 +40,12 @@ const doctorSchema = new mongoose.Schema({
     },
     MedicalLicense:{
        type:String,
-       require:true,
+       required:true,
        unique:true
     },
     MedicalConcil:{
         type:String,
-        require:true
+        required:true
     },
     Status:{
         type:String,
@@ -68,9 +68,22 @@ const doctorSchema = new mongoose.Schema({
         saturday: { type: [String], default: null },
         sunday: { type: [String], default: null }
     },
-    rating: {
-        type: String,
-        default: "0"
+    shifts: {
+        "12am-6am": { type: Boolean, default: false },
+        "6am-12pm": { type: Boolean, default: false },
+        "12pm-6pm": { type: Boolean, default: false },
+        "6pm-12am": { type: Boolean, default: false }
+    },
+    ratings: {
+        "1-star": { type: Number, default: 0 },
+        "2-star": { type: Number, default: 0 },
+        "3-star": { type: Number, default: 0 },
+        "4-star": { type: Number, default: 0 },
+        "5-star": { type: Number, default: 0 }
+    },
+    AverageRating: {
+        type: Number,
+        default: 0
     },
     password: {
         type: String,
